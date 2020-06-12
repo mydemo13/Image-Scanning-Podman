@@ -13,7 +13,7 @@ node {
         remote.password = Linux_PASS
 
         stage("Scan image with twistcli") {
-            sshCommand remote: remote, command: 'sudo ./twistcli images scan --u $TL_USER --p $TL_PASS --details --address https://$TL_CONSOLE --podman-path ${env.podman_path} ${env.image_name}'
+            sshCommand remote: remote, command: "sudo ./twistcli images scan --u $TL_USER --p $TL_PASS --details --address https://$TL_CONSOLE --podman-path ${env.podman_path} ${env.image_name}"
         }
     }
 }
