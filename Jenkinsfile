@@ -1,9 +1,10 @@
-def remote = [:]
-remote.name = ${env.podman_hostname}
-remote.host = ${env.podman_host}
-remote.allowAnyHosts = true
-
 node {
+
+    def remote = [:]
+    remote.name = ${env.podman_hostname}
+    remote.host = ${env.podman_host}
+    remote.allowAnyHosts = true
+    
     withCredentials([
         usernamePassword(credentialsId: 'linux_host_creds', passwordVariable: 'Linux_PASS', usernameVariable: 'Linux_USER'),
         usernamePassword(credentialsId: 'twistlock_creds', passwordVariable: 'TL_PASS', usernameVariable: 'TL_USER')]) {
