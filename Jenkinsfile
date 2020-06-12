@@ -5,8 +5,8 @@ remote.allowAnyHosts = true
 
 node {
     withCredentials([usernamePassword(credentialsId: 'linux_host_creds', passwordVariable: 'Linux_PASS', usernameVariable: 'Linux_USER')]) {
-        remote.user = $Linux_USER
-        remote.password = $Linux_PASS
+        remote.user = Linux_USER
+        remote.password = Linux_PASS
 
         stage("Scan image with twistcli") {
             withCredentials([usernamePassword(credentialsId: 'twistlock_creds', passwordVariable: 'TL_PASS', usernameVariable: 'TL_USER')]) {
