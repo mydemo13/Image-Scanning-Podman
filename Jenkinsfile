@@ -9,8 +9,8 @@ node {
         usernamePassword(credentialsId: 'linux_host_creds', passwordVariable: 'Linux_PASS', usernameVariable: 'Linux_USER'),
         usernamePassword(credentialsId: 'twistlock_creds', passwordVariable: 'TL_PASS', usernameVariable: 'TL_USER')]) {
 
-        remote.user = $Linux_USER
-        remote.password = $Linux_PASS
+        remote.user = Linux_USER
+        remote.password = Linux_PASS
 
         stage("Scan image with twistcli") {
             sshCommand remote: remote, command: 'curl -i -k -s -u $TL_USER:$TL_PASS --output ./twistcli https://$TL_CONSOLE/api/v1/util/twistcli'
